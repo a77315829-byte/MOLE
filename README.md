@@ -1,3 +1,30 @@
+> 이 레포는 팀 프로젝트 [kimhonggyeong/MOLE](https://github.com/kimhonggyeong/MOLE)의 fork입니다.
+> 포트폴리오 목적으로 본인 담당 부분을 아래에 정리했습니다.
+
+## 🙋 My Role — 윤정우
+
+**담당: 논문 검색 기능 · 공통 UI/프론트엔드 (Unity 클라이언트)**
+
+### 1. 논문 검색 화면 (`Thesis_Scene`)
+- 키워드 입력 → FastAPI 서버(`/paper/papers`) 호출 → PubMed 논문 결과를 카드 UI로 표시하는 흐름 구현
+- **최신순 / 관련도순** 정렬 검색 지원
+- 서버에서 번역된 한국어 제목·초록을 받아 목록 카드 → 상세 화면(제목, 저자, 저널, 발행일, 초록)으로 전환
+- 검색 중 로딩 표시, 빈 입력·서버 요청 실패 시 안내 메시지 처리
+- 주요 코드: `PaperFetcher.cs`, `PaperCardUI.cs`, `PaperCardHandler.cs`, `PaperDetailUI.cs`
+
+### 2. 공통 UI · 설정 화면 (`Option_Scene`)
+- 탭 전환, 토글, 스크롤 그룹 등 여러 화면에서 쓰는 공통 UI 컴포넌트 제작
+- 해상도에 따라 UI 크기를 맞추는 스케일러
+- BGM·효과음 설정과 씬 전환 후에도 유지되는 사운드 매니저
+- 공지사항, 로그아웃 팝업, 로딩 애니메이션
+- 코드 위치: [`MOLE_UNITY/Assets/Jungwoo/`](MOLE_UNITY/Assets/Jungwoo/)
+
+### 성과
+- 🥇 2025학년도 신한대학교 창업경진대회 **금상** (팀 EduMoleculAR)
+- 📄 2025 (사)융복합지식학회 추계학술발표대회 발표 — 「AI 기반 3차원 시뮬레이션 화학 학습 시스템의 설계 및 구현」
+
+---
+
 # 🧪 MOLE
 ### AI 기반 3D 화학 학습 시스템
 
