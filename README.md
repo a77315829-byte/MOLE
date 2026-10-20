@@ -1,99 +1,43 @@
-> 이 레포는 팀 프로젝트 [kimhonggyeong/MOLE](https://github.com/kimhonggyeong/MOLE)의 fork입니다.
-> 포트폴리오 목적으로 본인 담당 부분을 아래에 정리했습니다.
+# MOLE / EduMoleculAR
 
-## 🙋 My Role — 윤정우
+**AI 화학 학습 서비스를 사용하는 Unity·C# 클라이언트**
 
-**담당: 논문 검색 기능 · 공통 UI/프론트엔드 (Unity 클라이언트)**
+분자 구조 탐색, 화합물 검색, 챗봇·퀴즈와 논문 검색을 제공하는 3차원 화학 학습 앱입니다.
 
-### 1. 논문 검색 화면 (`Thesis_Scene`)
-- 키워드 입력 → FastAPI 서버(`/paper/papers`) 호출 → PubMed 논문 결과를 카드 UI로 표시하는 흐름 구현
-- **최신순 / 관련도순** 정렬 검색 지원
-- 서버에서 번역된 한국어 제목·초록을 받아 목록 카드 → 상세 화면(제목, 저자, 저널, 발행일, 초록)으로 전환
-- 검색 중 로딩 표시, 빈 입력·서버 요청 실패 시 안내 메시지 처리
-- 주요 코드: `PaperFetcher.cs`, `PaperCardUI.cs`, `PaperCardHandler.cs`, `PaperDetailUI.cs`
+2025.03 - 2025.12 | 8인 팀 | 논문 검색 · 공통 UI 개발  
+`Unity · C# · Coroutine · UnityWebRequest · JsonUtility · FastAPI · PubMed`
 
-### 2. 공통 UI · 설정 화면 (`Option_Scene`)
-- 탭 전환, 토글, 스크롤 그룹 등 여러 화면에서 쓰는 공통 UI 컴포넌트 제작
-- 해상도에 따라 UI 크기를 맞추는 스케일러
-- BGM·효과음 설정과 씬 전환 후에도 유지되는 사운드 매니저
-- 공지사항, 로그아웃 팝업, 로딩 애니메이션
-- 코드 위치: [`MOLE_UNITY/Assets/Jungwoo/`](MOLE_UNITY/Assets/Jungwoo/)
+![팀 앱의 3D 학습 화면 - 발표 논문에 수록된 실제 화면](docs/portfolio/screen.png)
 
-### 성과
-- 🥇 2025학년도 신한대학교 창업경진대회 **금상** (팀 EduMoleculAR)
-- 📄 2025 (사)융복합지식학회 추계학술발표대회 발표 — 「AI 기반 3차원 시뮬레이션 화학 학습 시스템의 설계 및 구현」
+_팀 앱의 3D 학습 화면 - 발표 논문에 수록된 실제 화면_
 
----
+![코드를 기준으로 정리한 처리 흐름](docs/portfolio/architecture.png)
 
-# 🧪 MOLE
-### AI 기반 3D 화학 학습 시스템
+## 본인 기여
 
-MOLE은 화학 분자 구조를 직접 탐색하고 학습할 수 있도록 개발한  
-**Unity 기반 AI 화학 학습 애플리케이션**입니다.
+논문 검색 화면과 Unity 공통 UI를 개발했습니다. 서버의 AI 챗봇·퀴즈 추천 모델은 팀 시스템 구성으로 구분하고, 본인 기여는 C# 클라이언트와 외부 서비스 연동에 둡니다.
 
-분자 구조의 2D·3D 시각화뿐만 아니라 화합물 검색, 분자 조립,
-AI 챗봇, 개인화 퀴즈 추천, 관련 논문 검색 기능을 하나의 학습 환경으로 통합했습니다.
+## 기술 구조
 
-> 신한대학교 교내 마이크로스톤 프로젝트로 개발되었습니다.
+| 구성 | 구현 내용 |
+|---|---|
+| C# 비동기 서비스 연동 | Coroutine과 UnityWebRequest로 검색어·정렬 조건을 FastAPI에 전달합니다. 요청 중 로딩, 빈 입력과 요청 실패를 사용자에게 안내합니다. |
+| 데이터에서 화면까지 | JsonUtility로 응답을 역직렬화하고 카드 프리팹을 생성합니다. 선택한 논문 데이터를 상세 패널로 전달하고 검색어 강조와 초록 일부 표시를 적용했습니다. |
+| 씬 · 이벤트 · 설정 | Button·Slider 이벤트로 탭 전환과 음량을 제어합니다. 싱글턴·DontDestroyOnLoad로 사운드 객체를 유지하고 PlayerPrefs로 음량·진행도를 저장하고 복원합니다. |
+| 팀 AI 서비스와 담당 범위 | 팀 서버는 GPT-2 기반 챗봇과 사용자·퀴즈 임베딩 및 풀이 시간을 입력으로 쓰는 PyTorch 추천 모델을 제공합니다. 본인은 논문 검색·번역 결과를 표시하는 C# 클라이언트와 공통 UI를 맡았습니다. |
 
----
+## 구현 결과와 확인 범위
 
-## 📌 주요 기능
+검색 입력 → API 요청 → 응답 파싱 → 카드 생성 → 상세 확인을 연결했습니다. 팀 프로젝트는 창업경진대회 금상과 융복합지식학회 발표로 이어졌습니다.
 
-### 🧬 1. 분자 구조 시각화
-- 화학 분자의 2D / 3D 구조 시각화
-- 분자 회전, 확대 및 축소
-- RDKit 및 Open Babel을 활용한 분자 구조 처리
-- 분자 구조의 3D 좌표 생성 및 변환
+본인 역할은 챗봇·추천 모델의 단독 학습이 아닙니다. 앱 화면 이미지는 팀 결과이며 논문에 포함된 실제 화면을 사용했습니다.
 
-### 🔨 2. 분자 조립
-- 사용자가 원자와 결합을 직접 조합하여 분자 생성
-- 생성된 분자 구조를 3D 모델로 시각화
-- 분자 구조 데이터 처리 및 검증
+## 코드와 실행
 
-### 🔍 3. 화합물 검색
-- PubChem API 기반 화합물 검색
-- 분자식, 구조 및 화합물 정보 조회
-- 검색 결과를 기반으로 2D / 3D 분자 구조 제공
+[검색 요청 · 카드 생성](MOLE_UNITY/Assets/Jungwoo/Jungwoo_Scripts/PaperFetcher.cs) · [상세 화면](MOLE_UNITY/Assets/Jungwoo/Jungwoo_Scripts/PaperDetailUI.cs) · [공통 UI](MOLE_UNITY/Assets/Jungwoo/Jungwoo_Scripts/TabUIManager.cs) · [팀 AI 서버](server/mole_local2.py)
 
-### 🤖 4. AI 화학 챗봇
-- KoGPT2 기반 화학 학습 질의응답
-- 화학·생물학 관련 학습 데이터 기반 응답
-- Unity 클라이언트와 AI 서버 연동
+Unity 클라이언트의 ServerUrl과 Python 서버 주소를 맞춰 실행합니다. 외부 모델·화학 라이브러리 의존성은 [기존 기술 문서](README_DETAILS.md)와 `server/mole_local2.py`를 확인합니다.
 
-### 📝 5. 개인화 퀴즈 추천
-- 사용자의 문제 풀이 기록 저장
-- 정답 여부 및 학습 데이터를 활용한 추천
-- PyTorch 기반 개인화 퀴즈 추천 모델
+화면·구성도는 설명을 위한 자료이며, 구성도는 현재 코드의 처리 흐름을 정리한 것입니다. 실험 수치와 본인 기여 범위는 위에 명시한 기준으로 해석합니다.
 
-### 📚 6. 논문 검색
-- PubMed API를 통한 화학·생물학 관련 논문 검색
-- 논문 제목 및 초록 제공
-- 번역 기능을 통한 한국어 학습 지원
-
----
-
-## 🏗 System Architecture
-
-```text
-┌──────────────────────────────┐
-│          Unity Client        │
-│                              │
-│  3D Molecule Visualization   │
-│  Molecule Builder / Search   │
-│  Quiz / Chatbot / Paper UI   │
-└──────────────┬───────────────┘
-               │ REST API
-               ▼
-┌──────────────────────────────┐
-│        Python Backend        │
-│                              │
-│  Molecule Processing         │
-│  AI Chatbot                  │
-│  Quiz Recommendation         │
-│  External API Integration    │
-└──────┬────────┬──────────────┘
-       │        │
-       ▼        ▼
-   Database   External API
- MySQL/SQLite PubChem/PubMed
+이 저장소는 팀 프로젝트 [kimhonggyeong/MOLE](https://github.com/kimhonggyeong/MOLE)의 fork이며, 위 내용은 본인 담당 부분과 팀 시스템 구성을 구분해 정리한 것입니다.
