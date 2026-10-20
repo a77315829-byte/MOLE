@@ -13,6 +13,8 @@ _팀 앱의 3D 학습 화면 - 발표 논문에 수록된 실제 화면_
 
 ![코드를 기준으로 정리한 처리 흐름](docs/portfolio/architecture.png)
 
+[구성도 SVG 원본](docs/portfolio/architecture.svg)
+
 ## 본인 기여
 
 논문 검색 화면과 Unity 공통 UI를 개발했습니다. 서버의 AI 챗봇·퀴즈 추천 모델은 팀 시스템 구성으로 구분하고, 본인 기여는 C# 클라이언트와 외부 서비스 연동에 둡니다.

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620">
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Malgun Gothic, Noto Sans CJK KR, sans-serif">
+<text x="35" y="38" font-size="30" fill="#4964ce" font-weight="700" text-anchor="start">UNITY CLIENT ↔ SERVICE LAYERS</text>
+<text x="35" y="71" font-size="22" fill="#64718a" font-weight="400" text-anchor="start">MOLE / 직접 담당한 논문 검색·공통 UI와 팀 AI 서버를 영역으로 구분</text>
+<rect x="30" y="90" width="650" height="495" rx="17" fill="#f3f6fc" stroke="#d3dced" stroke-width="2"/>
+<text x="50" y="125" font-size="23" fill="#64718a" font-weight="700" text-anchor="start">본인 담당 / Unity C# 클라이언트</text>
+<rect x="750" y="90" width="820" height="310" rx="17" fill="#f3f6fc" stroke="#d3dced" stroke-width="2"/>
+<text x="770" y="125" font-size="23" fill="#64718a" font-weight="700" text-anchor="start">논문 검색 서비스</text>
+<rect x="750" y="435" width="820" height="150" rx="17" fill="#f0f8f7" stroke="#d3dced" stroke-width="2"/>
+<text x="770" y="470" font-size="23" fill="#64718a" font-weight="700" text-anchor="start">팀 AI 서비스 / 별도 담당</text>
+<polyline points="320,212 395,212" fill="none" stroke="#4964ce" stroke-width="3"/>
+<polygon points="395,212 384.1946347717679,217.21958640933477 384.1946347717679,206.78041359066523" fill="#4964ce"/>
+<polyline points="635,212 800,212" fill="none" stroke="#4964ce" stroke-width="3"/>
+<polygon points="800,212 789.1946347717678,217.21958640933477 789.1946347717678,206.78041359066523" fill="#4964ce"/>
+<polyline points="1100,212 1190,212" fill="none" stroke="#4964ce" stroke-width="3"/>
+<polygon points="1190,212 1179.1946347717678,217.21958640933477 1179.1946347717678,206.78041359066523" fill="#4964ce"/>
+<polyline points="1355,265 1355,350 710,350 710,420 635,420" fill="none" stroke="#4964ce" stroke-width="3"/>
+<polygon points="635,420 645.8053652282322,414.78041359066526 645.8053652282322,425.21958640933474" fill="#4964ce"/>
+<polyline points="395,420 320,420" fill="none" stroke="#4964ce" stroke-width="3"/>
+<polygon points="320,420 330.8053652282321,414.78041359066526 330.8053652282321,425.21958640933474" fill="#4964ce"/>
+<rect x="70" y="160" width="250" height="105" rx="14" fill="#ffffff" stroke="#d3dced" stroke-width="2"/>
+<text x="195.0" y="194.5" font-size="28" fill="#172842" font-weight="700" text-anchor="middle">검색 UI</text>
+<text x="195.0" y="226.5" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">검색어 · 정렬 조건</text>
+<text x="195.0" y="252.5" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">로딩 / 실패 안내</text>
+<rect x="395" y="160" width="240" height="105" rx="14" fill="#ffffff" stroke="#d3dced" stroke-width="2"/>
+<text x="515.0" y="194.5" font-size="28" fill="#172842" font-weight="700" text-anchor="middle">비동기 API 요청</text>
+<text x="515.0" y="226.5" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">Coroutine</text>
+<text x="515.0" y="252.5" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">UnityWebRequest</text>
+<rect x="800" y="160" width="300" height="105" rx="14" fill="#ffffff" stroke="#d3dced" stroke-width="2"/>
+<text x="950.0" y="194.5" font-size="28" fill="#172842" font-weight="700" text-anchor="middle">FastAPI / PubMed</text>
+<text x="950.0" y="226.5" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">논문 조회</text>
+<text x="950.0" y="252.5" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">GoogleTranslator 번역</text>
+<rect x="1190" y="160" width="330" height="105" rx="14" fill="#ffffff" stroke="#d3dced" stroke-width="2"/>
+<text x="1355.0" y="194.5" font-size="28" fill="#172842" font-weight="700" text-anchor="middle">논문 응답</text>
+<text x="1355.0" y="226.5" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">제목 · 초록 · 저자</text>
+<text x="1355.0" y="252.5" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">저널 · 발행일</text>
+<rect x="70" y="365" width="250" height="110" rx="14" fill="#ffffff" stroke="#d3dced" stroke-width="2"/>
+<text x="195.0" y="415.0" font-size="28" fill="#172842" font-weight="700" text-anchor="middle">목록 · 상세 패널</text>
+<text x="195.0" y="447.0" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">논문 데이터 전달</text>
+<rect x="395" y="365" width="240" height="110" rx="14" fill="#ffffff" stroke="#d3dced" stroke-width="2"/>
+<text x="515.0" y="402.0" font-size="28" fill="#172842" font-weight="700" text-anchor="middle">JSON → 카드</text>
+<text x="515.0" y="434.0" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">JsonUtility</text>
+<text x="515.0" y="460.0" font-size="22" fill="#64718a" font-weight="400" text-anchor="middle">프리팹 동적 생성</text>
+<text x="72" y="558" font-size="23" fill="#64718a" font-weight="400" text-anchor="start">공통 UI / 이벤트 · 사운드 · PlayerPrefs</text>
+<rect x="800" y="480" width="300" height="75" rx="14" fill="#eef8f5" stroke="#afd7cf" stroke-width="2"/>
+<text x="950.0" y="528.5" font-size="28" fill="#137d78" font-weight="700" text-anchor="middle">GPT-2 챗봇</text>
+<rect x="1190" y="480" width="330" height="75" rx="14" fill="#eef8f5" stroke="#afd7cf" stroke-width="2"/>
+<text x="1355.0" y="528.5" font-size="28" fill="#137d78" font-weight="700" text-anchor="middle">PyTorch 퀴즈 추천</text>
+<rect x="686" y="178" width="50.0" height="30" rx="5" fill="white"/>
+<text x="690" y="201" font-size="21" fill="#4964ce" font-weight="400" text-anchor="start">요청</text>
+<rect x="996" y="330" width="120.0" height="30" rx="5" fill="white"/>
+<text x="1000" y="353" font-size="21" fill="#4964ce" font-weight="400" text-anchor="start">응답 데이터</text>
+</g>
+</svg>
